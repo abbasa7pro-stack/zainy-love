@@ -185,3 +185,22 @@ function startSlideshow() {
 yesBtn.addEventListener("click", () => {
   popup.style.display = "flex";
   music.play().catch(()=>{});
+  startSlideshow();
+  launchConfetti();
+});
+
+function launchConfetti() {
+  for (let i = 0; i < 120; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration = (Math.random()*2+2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
